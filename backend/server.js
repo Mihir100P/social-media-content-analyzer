@@ -1,9 +1,11 @@
 const express = require("express");
 const cors = require("cors");
+const dotenv = require("dotenv");
 
 const analyzeRoutes = require("./routes/analyze");
 
 
+dotenv.config();
 
 const app = express();
 
@@ -13,4 +15,6 @@ app.use(cors({
 app.use(express.json());
 app.use("/api/analyze", analyzeRoutes);
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+const PORT = process.env.PORT ;
+
+app.listen(PORT, () => console.log("Server running on port 5000"));
