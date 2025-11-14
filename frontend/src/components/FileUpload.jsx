@@ -15,7 +15,7 @@ export default function FileUpload() {
     formData.append("file", file);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/analyze", formData);
+      const res = await axios.post("/api/analyze", formData);
       setResult(res.data);
     } catch (err) {
       alert("Error analyzing file. Check console for details.");
